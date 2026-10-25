@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raffle Picker BD — Spin the Wheel</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <h1>Raffle Picker BD</h1>
+    <p id="subtitle" class="subtitle"></p>
+  </div>
+  <button id="langBtn" type="button" class="lang-btn">বাংলা</button>
+</header>
+
+<main>
+  <section class="card">
+    <h2 id="namesTitle">Names in the draw</h2>
+    <label id="bulkLabel" for="bulkNames"></label>
+    <textarea id="bulkNames" rows="5" placeholder=""></textarea>
+    <div class="row">
+      <button id="addBulkBtn" type="button" class="primary"></button>
+      <button id="sampleBtn" type="button"></button>
+    </div>
+    <p id="sampleNote" class="note"></p>
+    <form id="singleForm" class="row" novalidate>
+      <label id="singleLabel" for="singleName"></label>
+      <input id="singleName" type="text" maxlength="60" autocomplete="off">
+      <button id="addSingleBtn" type="submit" class="primary"></button>
+    </form>
+    <p id="formError" class="error" role="alert"></p>
+    <p class="counts"><span id="poolCount"></span> · <span id="winnerCount"></span></p>
+    <div id="nameList" class="name-list"></div>
+  </section>
+
+  <section class="card wheel-card">
+    <h2 id="wheelTitle">The wheel</h2>
+    <div class="wheel-wrap">
+      <div class="pointer" aria-hidden="true">▼</div>
+      <canvas id="wheelCanvas" width="340" height="340"></canvas>
+    </div>
+    <div id="winnerBanner" class="winner-banner" aria-live="polite"></div>
+    <button id="spinBtn" type="button" class="spin-btn"></button>
+    <div class="quick-row">
+      <label id="quickLabel" for="quickCount"></label>
+      <input id="quickCount" type="number" min="1" max="10" value="1">
+      <button id="quickDrawBtn" type="button"></button>
+    </div>
+    <label class="check-row"><input id="noRepeatToggle" type="checkbox" checked> <span id="noRepeatLabel"></span></label>
+  </section>
+
+  <section class="card">
+    <h2 id="winnersTitle">Winners board</h2>
+    <div id="winnersList"></div>
+    <button id="resetDrawBtn" type="button"></button>
+  </section>
+
+  <section class="card">
+    <h2 id="dataTitle">Your data</h2>
+    <div class="row">
+      <button id="exportBtn" type="button"></button>
+      <button id="importBtn" type="button"></button>
+      <input id="importFile" type="file" accept="application/json,.json" hidden>
+    </div>
+    <p id="importError" class="note"></p>
+    <p id="eraseHint" class="note"></p>
+    <div class="row">
+      <input id="eraseInput" type="text" placeholder="DELETE" autocomplete="off">
+      <button id="eraseBtn" type="button" class="danger"></button>
+    </div>
+  </section>
+</main>
+
+<footer><p id="footerText"></p></footer>
+<script src="logic.js"></script>
+<script src="i18n.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
